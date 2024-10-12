@@ -32,19 +32,28 @@ function Crea_y_Pinta(fila, columna){
 
 
 // FORMA 2
-function Crea_y_Pinta2(fila,columna){
-    let matriz = [fila][columna];
+function Crea_y_Pinta2(fila, columna) {
+    // Crear la matriz con el número de filas
+    let matriz = new Array(fila);
 
-    // Rellenamos valores
-    for (let i = 0; i < fila; i++){
-        for (let j = 0; j < columna; j++){
-            // Rellena las columnas y filas
-            matriz[i][j] = (i + j);
+    // Crear las columnas dentro de cada fila
+    for (let i = 0; i < fila; i++) {
+        matriz[i] = new Array(columna); // Cada fila es un array con el número de columnas
+    }
+
+    // Rellenar la matriz y pintarla
+    for (let i = 0; i < fila; i++) {
+        let mostrar = "";
+        for (let j = 0; j < columna; j++) {
+            // Rellenar cada posición de la matriz con la suma de i y j
+            matriz[i][j] = i + j;
+            mostrar += matriz[i][j].toString().padStart(2, '0') + " "; // Formato de dos dígitos
         }
-        // Pinta filas completas
-        console.log(matriz[i]);
+        // Pinta cada fila completa
+        console.log(mostrar.trim());
     }
 }
+
 
 let fila = PedirNum("Introduce el número de filas: ");
 let columna = PedirNum("Introduce el número de columnas: ");
