@@ -7,3 +7,5 @@ miArray[4]=40;
 
 console.log(miArray);
 
+let sinRepetidos = Array.from(new Set(miArray));
+console.log(sinRepetidos);
