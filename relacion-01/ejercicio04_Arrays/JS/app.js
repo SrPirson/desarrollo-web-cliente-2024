@@ -7,6 +7,6 @@ let posicion = parseInt(prompt("Introduce la posición donde deseas insertar el 
 // Pedir al usuario el nuevo valor que quiere insertar
 let nuevoValor = parseInt(prompt("Introduce el nuevo valor a insertar: "));
 
-vector.splice(posicion, 0, nuevoValor);
+vector.splice(posicion, 1, nuevoValor);
 
 console.log(vector);
