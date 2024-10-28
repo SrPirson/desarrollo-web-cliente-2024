@@ -112,15 +112,13 @@ function cambioCabecera(cabecera){
 }
 
 
+// Opcion 1 llamada a eventos desde JS
+
 function cambioSubtitulo(elemento) {
     elemento.style.color = (elemento.style.color === 'cyan') ? 'pink' : 'cyan';
 }
 
-
-
 let elemento = document.getElementById("subtitle");
-
-// Opcion 1 llamada a eventos desde JS
 
 elemento.onclick = function() {
     cambioSubtitulo(elemento);
@@ -130,6 +128,46 @@ elemento.onclick = function() {
 // Opcion 2 lo mas utilizado
 
 let title3 = document.getElementById("subsubtitle");
-title3.style.color = "cyan";
-title3.addEventListener("click", cambioSubtitulo);
+//title3.addEventListener('click', cambioSubsubtitulo); // Utilizaremos click en la parte JS y onclick en la parte HTML
+title3.addEventListener('dblclick', cambioSubsubtitulo);
 
+function cambioSubsubtitulo(){
+    let cambio = document.getElementById('subsubtitle');
+    cambio.style.color = (cambio.style.color === 'fuchsia') ? 'darkorchid' : 'fuchsia';
+}
+
+
+// Forma 1
+let c1 = document.getElementById("caja1");
+c1.addEventListener("click", cambioClase1);
+
+function cambioClase1() {
+    if (c1.classList.contains("caja--negra")) { // classList genera un array de los elementos de la clase.
+        c1.classList.remove("caja--negra");
+        c1.classList.add("caja--roja");
+    } else if (c1.classList.contains("caja--roja")) {
+        c1.classList.remove("caja--roja");
+        c1.classList.add("caja--negra");
+    }
+}
+
+// Forma 2
+let c2 = document.getElementById("caja2");
+c2.addEventListener("click", cambioClase2);
+
+function cambioClase2() {
+    if (c2.classList.contains("caja--negra")) {
+        c2.classList.replace("caja--negra", "caja--roja");
+    } else if (c2.classList.contains("caja--roja")) {
+        c2.classList.replace("caja--roja", "caja--negra");
+    }
+}
+
+// Forma 3
+let c3 = document.getElementById("caja3");
+c3.addEventListener("click", cambioClase3);
+
+function cambioClase3() {
+    c3.classList.toggle("caja--negra");
+    c3.classList.toggle("caja--roja");
+}
