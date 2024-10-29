@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Calculadora - DOM</title>
+    <style>
+        .container {
+            height: 100px;
+            width: 320px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .resultado {
+            height: 20px;
+            width: 320px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        
+        .caja1 {
+            margin-bottom: 10px;
+        }
+
+        .alerta {
+            background-color: red;
+            color: whitesmoke;
+            font-size: 20px;
+        }
+
+        .normal {
+            background-color: green;
+            color: whitesmoke;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Aplicación de calculadora</h1>
+        <div class="container">
+            <form id="formulario">
+                <div class="caja">
+                    <label for="operandoA">Operando A:</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Escribe operando A"
+                        name="opA"/>
+                </div>
+                <div class="caja">
+                    <label for="operandoB">Operando B:</label>
+                    <input 
+                        type="text"
+                        class="form-control"
+                        placeholder="Escribe operando B"
+                        name="opB"/>
+                </div>
+            </form>
+            <button type="submit" id="btn_sumar">Sumar</button>
+            <button type="submit" id="btn_restar">Restar</button>
+            <button type="submit" id="btn_multiplicar">Multiplicar</button>
+            <button type="submit" id="btn_dividir">Dividir</button>
+        </div>
+        <div class="resultado" id="resultado">Resultado de la operación.</div>
+        <div class="resultado" id="resultado2">Resultado de la operación 2.</div>
+    </main>
+    <script src="./JS/calculadora.js"></script>
+</body>
+</html>

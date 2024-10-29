@@ -42,7 +42,6 @@ function PedirNum(){
     while(isNaN(j)){
         j = prompt("Error: introduce un número: ");
     }
-
     return Number(j);
 }
 
