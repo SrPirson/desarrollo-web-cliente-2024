@@ -1,0 +1,19 @@
+.uno {
+    background-color: rgb(185, 137, 230);
+    color: wheat;
+    border: 3px solid rgb(201, 154, 67);
+    width: 15%;
+    height: 50%;
+    padding: 10px;
+    text-align: justify;
+}
+
+.dos {
+    background-color: rgb(201, 154, 67);
+    color: rgb(117, 51, 179); 
+    border: 3px solid rgb(185, 137, 230); 
+    width: 15%;
+    height: 50%;
+    padding: 10px;
+    text-align: justify;
+}
