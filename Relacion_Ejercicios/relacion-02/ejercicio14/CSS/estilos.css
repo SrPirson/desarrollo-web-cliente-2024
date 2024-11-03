@@ -1,0 +1,33 @@
+.menu {
+    width: 15%; 
+    height: 80%; 
+    background-color: #c7def5; 
+    border: 1px solid #597dac;
+    padding: 10px;
+    position: fixed; 
+    top: 10%; 
+    left: 10px; 
+}
+
+.apartado {
+    list-style: none; 
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.apartado:hover {
+    transform: scale(1.03);
+}
+
+.subapartados {
+    display: none;  /* Oculta por defecto */
+    list-style: none;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.subapartado {
+    padding: 5px 0; /* Espaciado entre subapartados */
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+    <style>
+
+        .divs{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px; 
+        }
+        .uno, .dos, .tres {
+            width: 300px;
+            height: 100px;
+            margin: auto;
+            color: wheat;
+            font-weight: bold;
+
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+        .uno {
+            background-color: violet;
+        }
+        .dos {
+            background-color: plum;
+            visibility: hidden;
+        }
+        .tres {
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 11</h1>
+
+    <section class="divs">
+        <div class="uno" id="uno">Soy el DIV 1</div>
+        <div class="dos" id="dos">Soy el DIV 2</div>
+        <div class="tres" id="tres">Soy el DIV 3</div>
+    </section>
+
+    <script src="./JS/app.js"></script>
+</body>
+</html>
