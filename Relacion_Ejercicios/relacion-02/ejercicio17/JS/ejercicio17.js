@@ -4,7 +4,7 @@ btnCorrer.addEventListener('click', iniciarCarreraOptima);
 function calcularVelocidades(){
     let velocidades = [];
     for (let i=1; i<=4; i++){
-        velocidades.push(parseInt(Math.random()*5 +1));
+        velocidades.push(parseInt(Math.random()*15 +1));
     }
     console.log(velocidades);
     return velocidades;
@@ -48,22 +48,22 @@ function iniciarCarrera(){
             div1.style.setProperty("left", velocidad1 + "px");          
             if (parseInt(estilo1.getPropertyValue("left"))>=1080){
                 final = true;
-                alert("ha ganado div 1");
+                alert("Ha ganado div 1");
             }
             div2.style.setProperty("left", velocidad2 + "px");
             if (parseInt(estilo2.getPropertyValue("left"))>=1080){
                 final = true;
-                alert("ha ganado div 2");
+                alert("Ha ganado div 2");
             }
             div3.style.setProperty("left", velocidad3 + "px");
             if (parseInt(estilo3.getPropertyValue("left"))>=1080){
                 final = true;
-                alert("ha ganado div 3");
+                alert("Ha ganado div 3");
             }
             div4.style.setProperty("left", velocidad4 + "px");
             if (parseInt(estilo4.getPropertyValue("left"))>=1080){
                 final = true;
-                alert("ha ganado div 4");
+                alert("Ha ganado div 4");
             }
         }
         else{
@@ -91,10 +91,15 @@ document.getElementById('reiniciar').onclick = function () {
     corredores[2].style.left = "0px";
     corredores[3].style.left = "0px";
     clearInterval(timer);
+    final = true;
+    btnCorrer.disabled = false;
 };
 
+let timer;
+let final = false;
 
 function iniciarCarreraOptima(){
+    btnCorrer.disabled = true;
     // console.log("Estoy aquí");
     let corredores = document.querySelectorAll("div");
     corredores[0].style.left = "0px";
@@ -103,9 +108,7 @@ function iniciarCarreraOptima(){
     corredores[3].style.left = "0px";
 
     let velocidades = [];
-    let timer;
-
-    let final = false;
+    final = false;
 
     timer = setInterval(function(){
         // opción 2 velocidad variable en cada momento
@@ -117,6 +120,7 @@ function iniciarCarreraOptima(){
                 if (parseInt(corredores[i].style.left)>=1080){
                     final=true;
                     alert("Ha ganado el corredor: " + (i+1));
+                    btnCorrer.disabled = false;
                 }
             }
         }
