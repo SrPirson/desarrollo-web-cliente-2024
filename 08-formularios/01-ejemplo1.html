@@ -1,26 +1,132 @@
-<!DOCTYPE html>
-<html lang="es">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejemplo 1</title>
-    <style>
-      .error {
-        color: red;
+    <title>Prueba 1</title>
+    <style type="text/css">
+      #nombreError {
+        display: none;
+        font-size: 0.8em;
+      }
+
+      #nombreError.visible {
+        display: block;
+      }
+
+      input.invalido {
+        border-color: red;
       }
     </style>
   </head>
   <body>
-    <label>Nombre:</label>
-    <input type="text" required minlength="5" maxlength="50" />
-    <span id="error" class="error"></span>
-    <br />
-    <button id="comprueba">Comprueba</button>
-    <p>checkValidity: <span id="checkValidity"></span></p>
-    <p>validationMessage: <span id="validationMessage"></span></p>
-    <p>validity.valueMissing: <span id="valueMissing"></span></p>
-    <p>validity.tooShort: <span id="tooShort"></span></p>
-    <p>validity.tooLong: <span id="tooLong"></span></p>
-    <script></script>
+    <form id="form">
+      <label for="nombre"> Nombre* </label>
+      <input type="text" name="nombre" id="nombre" />
+      <button id="enviar">Enviar</button>
+      <span role="alert" id="nombreError" aria-hidden="true">
+        Ingrese su nombre, por favor
+      </span>
+    </form>
+    <script>
+      const enviar = document.getElementById("enviar");
+
+      enviar.addEventListener("click", validar);
+
+      function validar(e) {
+        e.preventDefault(); // Para que se centre en este función
+
+        const campoNombre = document.getElementById("nombre");
+        let valido = true;
+
+        if (!campoNombre.value) {
+          const nombreError = document.getElementById("nombreError");
+          nombreError.classList.add("visible");
+          campoNombre.classList.add("invalido");
+          nombreError.setAttribute("aria-hidden", false);
+          nombreError.setAttribute("aria-invalid", true);
+        } else {
+          nombreError.classList.remove("visible");
+          campoNombre.classList.remove("invalido");
+          nombreError.setAttribute("aria-hidden", true);
+          nombreError.setAttribute("aria-invalid", false);
+        }
+        return valido;
+      }
+    </script>
+
+    <form>
+      <label>
+        <input
+          type="text"
+          id="marca"
+          required
+          pattern="^[a-zA-Z0-9]{4,}$"
+          autocomplete="off"
+        />
+      </label>
+      <input type="submit" id="submit" value="Enviar" />
+    </form>
+    <script>
+      // Variables
+      const inputMarca = document.querySelector("#marca");
+      const mensajeErrorMarcaCorto =
+        "Muy corta. Dame un nombre con 4 o mas caracteres.";
+
+      // Eventos
+      inputMarca.addEventListener("input", () => {
+        // Quita el mensaje según escribes
+        inputMarca.setCustomValidity("");
+        // Comprueba si debe validarlo
+        inputMarca.checkValidity();
+      });
+
+      inputMarca.addEventListener("invalid", () => {
+        inputMarca.setCustomValidity(mensajeErrorMarcaCorto); // Modifica el mensaje de error
+      });
+    </script>
+
+    <form>
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email" required autocomplete="off" />
+      <button>Enviar</button>
+    </form>
+
+    <script>
+      const miInput = document.querySelector("input");
+
+      // Quita la validación mientras escribes
+      miInput.addEventListener("input", () => {
+        // Quita el mensaje según escribes
+        miInput.setCustomValidity("");
+        // Comprueba si debe validarlo
+        miInput.checkValidity();
+      });
+
+      // Muestra el mensaje de validación
+      miInput.addEventListener("invalid", () => {
+        miInput.setCustomValidity("Me parece que esto no es un E-mail");
+      });
+    </script>
+
+    <form>
+      <label for="email">Email: </label>
+      <input type="number" required>
+      <button>Enviar</button>
+    </form>
+
+    <script>
+      const miInput = document.querySelector("input");
+
+      // Quita la validación mientras escribes
+      miInput.addEventListener("input", () => {
+        // Quita el mensaje según escribes
+        miInput.setCustomValidity("");
+        // Comprueba si debe validarlo
+        miInput.checkValidity();
+      });
+
+      // Muestra el mensaje de validación
+      miInput.addEventListener("invalid", () => {
+        miInput.setCustomValidity("No es un número");
+      });
+    </script>
   </body>
 </html>
