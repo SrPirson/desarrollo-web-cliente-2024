@@ -5,26 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script languaje='javascript'>
-    function contarPalabras(form) {
-        let texto = form.mensaje.value.trim();
-        if (texto === "") {
-            form.cantidad.value = "0";
-        } else {
-            let palabras = texto.split(/\s+/);
-            form.cantidad.value = palabras.length;
+
+        function contarPalabras(form) {
+            let texto = form.mensaje.value.trim();
+            if (texto === "") {
+                form.cantidad.value = "0";
+            } else {
+                let palabras = texto.split(/\s+/);
+                form.cantidad.value = palabras.length;
+            }
         }
 
-        
+        function confirmarBorrado(form) {
+            borrar  = window.confirm("¿Está seguro de que desea borrar el mensaje?");
+            if (borrar) {
+                form.mensaje.value = "";
+            } else {
+                alert("No se ha borrado el mensaje");
+            }
+        }
 
-    }
-</script>
+    </script>
+
 </head>
+
+
 <body>
+
     <form name='formulario1' method='POST' action='#' target='_blank'>
         <b>Por favor, redacte aquí su mensaje</b> Palabras escritas:
         <input type='text' name='cantidad' value='0' size='2'><br>
         <textarea rows='4' cols='35' name='mensaje' oninput='contarPalabras(this.form); if (event.keycode1 == 13) form.mensaje.value +=" ";'></textarea><br>
         <input type='submit' value='Enviar'>
+        <input type='button' value='Borrar' onclick="confirmarBorrado(this.form)">
     </form>
+
 </body>
+
 </html>

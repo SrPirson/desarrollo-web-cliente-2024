@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boton habilitado</title>
+
+    <script languaje='javascript'>
+
+    function verificarCampo(form) {
+        let nombre = form.nombre.value;
+        let apellidos = form.apellidos.value;
+
+        if (nombre !== "" && apellidos !== "") {
+            form.enviar.disabled = false;
+        }
+    }
+
+    </script>
+</head>
+<body>
+    
+    <form name='formulario1' method='POST' action='#' target='_blank'>
+        <b>Nombre: </b>
+        <input type='text' name='nombre' size='10' oninput="verificarCampo(this.form)"><br>
+        <b>Apellidos:</b>
+        <input type='text' name='apellidos' size='10' oninput="verificarCampo(this.form)"><br><br>
+
+        <input type='submit' id="enviar" value='Enviar' disabled>
+    </form>
+
+</body>
+</html>
