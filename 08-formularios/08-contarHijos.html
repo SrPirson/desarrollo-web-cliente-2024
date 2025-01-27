@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar Hijos</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="hijes">¿Cuantos hijes tenés?</label>
+        <input type="number" name="hijes" id="hijes">
+
+    </form>
+
+    <script>
+        let hijes = document.getElementById("hijes");
+        let formulario = document.getElementById("formulario");
+        hijes.addEventListener("change", function() {
+
+            formulario.removeChild(formulario.lastChild);
+
+            let div = document.createElement("div");
+
+            for (let i = 0; i < hijes.value; i++) {
+                
+                let br = document.createElement("br");
+                let textoHijo = document.createElement("label");
+                textoHijo.textContent = "Nombre del hijo " + (i + 1) + ": ";
+                div.appendChild(textoHijo);
+
+                let input = document.createElement("input");
+                input.type = "text";
+                div.appendChild(input);
+                formulario.appendChild(br);
+
+                formulario.appendChild(div);
+            }
+        });
+    </script>
+</body>
+</html>

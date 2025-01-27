@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color</title>
+    <style>
+        .caja {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            margin-top: 15px;
+            border: solid 5px black;
+        }
+    </style>
+</head>
+<body>
+    <form>
+
+        <div>
+            <label for="color">Selecciona un color:</label>
+
+            <select name="color" id="color">
+                <option value="rojo">Rojo</option>
+                <option value="verde">Verde</option>
+                <option value="rosa">Rosa</option>
+                <option value="azul">Azul</option>
+            </select>
+        </div>
+    </form>
+    <div class="caja" id="caja"></div>
+</body>
+
+<script>
+    const select = document.getElementById('color');
+    const caja = document.getElementById('caja');
+    
+
+    select.addEventListener('change', function (){
+        let eleccion = select.value;
+        switch (eleccion) {
+            case 'rojo':
+                caja.style.backgroundColor = 'red';
+                break;
+            case 'verde':
+                caja.style.backgroundColor = 'green';
+                break;
+            case 'rosa':
+                caja.style.backgroundColor = 'pink';
+                break;
+            case 'azul':
+                caja.style.backgroundColor = 'blue';
+                break;
+        }
+    });
+</script>
+</html>
