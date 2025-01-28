@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 07</title>
+</head>
+
+<body>
+    <!-- 
+        7.- Modifique el ejercicio 5 (validación en HTML) para que recoja información el número de hijos (puede estar entre 0 y 10).
+        Validar el formulario ayudándote de los atributos de html5.
+        La validación se debe realizar poco a poco según el usuario vaya rellenando los campos.
+        En caso de introducir un valor incorrecto, limpiar el campo.
+    -->
+
+    <h1>Validación con HTML5</h1>
+    <div>
+        <form name="formulario" method="get" action="accion.html">
+            <fieldset>
+                <legend>Introduce los datos y pulsa Comprobar</legend>
+                <label for="dni">DNI:</label>
+                <input id="dni" type="text" name="dni" size="9" maxlength="12" pattern="^[0-9]{8}-[A-Za-z]$" placeholder="00000000-A" required />
+                <br /><br />
+
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" type="text" name="nombre" size="40" maxlength="150" pattern="^([A-Za-zÁÉÍÓÚáéíóúñÑ]+(\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+){1,3})$" placeholder="Pedro Sanchez" required />
+                <br /><br />
+
+                <label for="edad">Fecha de Nacimiento:</label>
+                <input id="edad" type="date" name="edad" required />
+                <br /><br />
+
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" size="40" maxlength="150" placeholder="email@email.com" required />
+                <br /><br />
+
+                <label for="sitioweb">Página WEB:</label>
+                <input id="sitioweb" type="url" name="sitioweb" placeholder="http://ejemplo.com/" />
+                <br /><br />
+
+                <label for="passwd">Contraseña:</label>
+                <input id="passwd" type="password" name="passwd" required />
+                <br /><br />
+
+                <label for="hijos">Número de hijos:</label>
+                <input id="hijos" type="number" name="hijos" required />
+            </fieldset>
+            <br />
+            <input id="botonEnvio" type="submit" value="Comprobar"></button>
+        </form>
+    </div>
+
+
+    <script>
+        const dni = document.getElementById("dni");
+        const nombre = document.getElementById("nombre");
+        const edad = document.getElementById("edad");
+        const email = document.getElementById("email");
+        const sitioweb = document.getElementById("sitioweb");
+        const passwd = document.getElementById("passwd");
+        const hijos = document.getElementById("hijos");
+
+        
+
+    </script>
+</body>
+
+</html>

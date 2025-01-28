@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 05</title>
+</head>
+
+<body>
+    <!-- 
+        5. Valida el siguiente formulario con atributos de HTML5
+        - DNI (99.999.999-X)
+        - Nombre (Mínimo 1 nombre y 1 apellido, Máximo 2 nombres y 2 apellidos)
+        - Fecha de Nacimiento (dd/mm/yyyy)
+        - Email (xxxxxx@yyyyy.zzz)
+        - WEB (http://www.xxxx.yyy)
+        - Contraseña (Entre 8 y 10 caracteres)
+    -->
+
+    <h1>Validación con HTML5</h1>
+    <div>
+        <form name="formulario" method="get" action="accion.html">
+            <fieldset>
+                <legend>Introduce los datos y pulsa Comprobar</legend>
+                <label for="dni">DNI:</label>
+                <input id="dni" type="text" name="dni" size="9" maxlength="12" pattern="^[0-9]{8}-[A-Za-z]$" required />
+                <br /><br />
+
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" type="text" name="nombre" size="40" maxlength="150" pattern="^([A-Za-zÁÉÍÓÚáéíóúñÑ]+(\s[A-Za-zÁÉÍÓÚáéíóúñÑ]+){1,3})$" required />
+                <br /><br />
+
+                <label for="edad">Fecha de Nacimiento:</label>
+                <input id="edad" type="date" name="edad" required />
+                <br /><br />
+
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" size="40" maxlength="150" required />
+                <br /><br />
+
+                <label for="sitioweb">Página WEB:</label>
+                <input id="sitioweb" type="url" name="sitioweb" />
+                <br /><br />
+
+                <label for="passwd">Contraseña:</label>
+                <input id="passwd" type="password" name="passwd" required />
+            </fieldset>
+            <input id="botonEnvio4" type="submit" value="Comprobar"></button>
+        </form>
+    </div>
+</body>
+
+</html>

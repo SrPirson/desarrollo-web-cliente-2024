@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 04</title>
+  </head>
+  <body>
+    <!-- 
+        4.- Confecciona una expresión regular que valide el ingreso del nombre de un día de la
+        semana y un número de 1 o 2 dígitos
+        Los valores serán desde Lunes (o número 0) hasta Domingo (número 6)
+    -->
+    
+    <form action="#">
+        <label for="dia">Dia de la semana: </label>
+        <input type="text" id="dia" placeholder="Ejem: (Lunes | 0)">
+        <input type="submit" id="comprobar" value="Comprobar">
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        const btnComprobar = document.getElementById("comprobar");
+
+        btnComprobar.addEventListener("click", comprobarDia);
+
+        function comprobarDia() {
+            const patterDia = /^(Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|Domingo|[0-6])$/;
+            const dia = document.getElementById("dia").value;
+            const resultado = document.getElementById("resultado");
+
+            if (patterDia.test(dia)) {
+                resultado.innerHTML = "Dia de la semana correcto.";
+            } else {
+                resultado.innerHTML = "Dia de la semana incorrecto, sigue el formato Lunes o 0.";
+            }
+        }
+    </script>
+
+  </body>
+</html>

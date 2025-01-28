@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 03</title>
+  </head>
+  <body>
+    <!-- 
+        3.- Valida una matrícula moderna
+    -->
+    
+    <form action="#">
+        <label for="matricula">Matricula: </label>
+        <input type="text" id="matricula" placeholder="Ejem: (9999-ZZZ)">
+        <input type="submit" id="comprobar" value="Comprobar">
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        const btnComprobar = document.getElementById("comprobar");
+
+        btnComprobar.addEventListener("click", comprobarMatricula);
+
+        function comprobarMatricula() {
+            const patterMatricula = /^[0-9]{4}-[A-Za-z]{3}$/;
+            const matricula = document.getElementById("matricula").value;
+            const resultado = document.getElementById("resultado");
+
+            if (patterMatricula.test(matricula)) {
+                resultado.innerHTML = "Matricula correcta.";
+            } else {
+                resultado.innerHTML = "Matricula incorrecta, sigue el formato 9999-ZZZ.";
+            }
+        }
+    </script>
+
+  </body>
+</html>

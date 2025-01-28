@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 02</title>
+  </head>
+  <body>
+    <!-- 
+        2.- Valida el ingreso de una hora con el formato hh:mm:ss o hh:mm
+    -->
+    
+    <form action="#">
+        <label for="hora">Hora: </label>
+        <input type="text" id="hora" placeholder="Ejem: (hh:mm:ss | hh:mm)">
+        <input type="submit" id="comprobar" value="Comprobar">
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        const btnComprobar = document.getElementById("comprobar");
+
+        btnComprobar.addEventListener("click", comprobarHora);
+
+        function comprobarHora() {
+            const patterHora = /^[0-9]{2}:[0-9]{2}(:[0-9]{2})?$/;
+            const hora = document.getElementById("hora").value;
+            const resultado = document.getElementById("resultado");
+
+            if (patterHora.test(hora)) {
+                resultado.innerHTML = "Hora correcta.";
+            } else {
+                resultado.innerHTML = "Hora incorrecta, sigue el formato hh:mm:ss o hh:mm.";
+            }
+        }
+    </script>
+
+  </body>
+</html>

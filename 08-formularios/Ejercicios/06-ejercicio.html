@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problemas de JS - Ejercicio 06</title>
+  </head>
+
+  <body>
+    <!-- 
+        6. a) Comprobar que en el momento del envío ninguno de los campos tiene menos de
+        dos caracteres (es decir, si está vacío, contiene una letra o dos letras se considerará no
+        válido) accediendo a los campos mediante document.forms y elements.
+
+        b) Igual que el apartado a) pero accediendo a los campos directamente usando el atri-
+        buto name (por ejemplo formularioContacto.apellidos haría alusión a un elemento input
+        cuyo atributo name es apellidos en un formulario cuyo atributo name es formularioCon-
+        tacto).
+    -->
+
+    <div id="cabecera">
+      <h2>FORMULARIOS</h2>
+      <h3>Ejemplos JavaScript - Formulario</h3>
+    </div>
+    <div style="color: blue; margin: 20px" id="ejemplo">Pulsa aquí</div>
+    <form name="formularioContacto" method="get" action="accion1.html">
+      <h2>Formulario de contacto</h2>
+      <label
+        >Nombre:<input id="nombreFormContacto" type="text" name="nombre"
+      /></label>
+      <label
+        >Apellidos:<input
+          id="apellidosFormContacto"
+          type="text"
+          name="apellidos"
+      /></label>
+      <label><input id="botonEnvio1" type="submit" value="Enviar" /></label>
+    </form>
+    <form name="formularioReclamacion" method="get" action="accion2.html">
+      <h2>Formulario de reclamación</h2>
+      <label
+        >Motivo reclamación:<input
+          id="motivoFormReclama"
+          type="text"
+          name="motivo"
+          required
+          autocomplete="off"
+      /></label>
+      <label
+        >Fecha del hecho:<input id="fechaFormReclama" type="text" name="fecha"
+      /></label>
+      <label><input id="botonEnvio2" type="submit" value="Enviar" /></label>
+    </form>
+    <button type="submit" id="botonValidar" onclick="validarFormulario()">
+      Validar
+    </button>
+
+    <script>
+      // Parte A
+      function comprobarCampoContacto() {
+        const formularioContacto = document.forms["formularioContacto"];
+        const nombre = formularioContacto.elements["nombre"].value.trim();
+        const apellidos = formularioContacto.elements["apellidos"].value.trim();
+
+        if (nombre.length < 2) {
+          alert(
+            "El nombre del formulario de contacto debe tener al menos 2 caracteres."
+          );
+          return false;
+        }
+
+        if (apellidos.length < 2) {
+          alert(
+            "Los apellidos del formulario de contacto deben tener al menos 2 caracteres."
+          );
+          return false;
+        }
+
+        return true;
+      }
+
+      // Parte B
+      function comprobarCampoReclamacion() {
+        const motivo = formularioReclamacion.motivo.value.trim();
+        const fecha = formularioReclamacion.fecha.value.trim();
+
+        if (motivo.length < 2) {
+          alert(
+            "El motivo de la reclamación debe tener al menos 2 caracteres."
+          );
+          return false;
+        }
+
+        if (fecha.length < 2) {
+          alert(
+            "La fecha del formulario de reclamación debe tener al menos 2 caracteres."
+          );
+          return false;
+        }
+
+        return true;
+      }
+
+      // Validar todos los formularios
+      function validarFormulario() {
+        const validoContacto = comprobarCampoContacto();
+        const validoReclamacion = comprobarCampoReclamacion();
+
+        if (validoContacto && validoReclamacion) {
+          alert("Todos los campos son válidos.");
+        }
+      }
+
+      // Agregar evento al botón "Validar"
+      const botonValidar = document.getElementById("botonValidar");
+      botonValidar.addEventListener("click", validarFormulario);
+    </script>
+  </body>
+</html>

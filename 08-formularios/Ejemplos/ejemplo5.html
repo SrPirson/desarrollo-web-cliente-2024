@@ -6,9 +6,15 @@
     <title>Ejemplo 5</title>
 </head>
 <body>
-    <form action="#" method="post">
-        
+    <h1>Confirmar borrar contenido</h1>
+    <form name='formulario1' method='POST' action='#' target='_blank'>
+        <b>Por favor, redacte aquí su mensaje</b> Palabras escritas:
+        <input type='text' name='cantidad' value='0' size='2' disabled><br>
+        <textarea rows='4' cols='35' name='mensaje' id="textArea"></textarea><br>
+        <input type='submit' id="enviar" value='Enviar'>
+        <input type='button' id="borrar" value='Borrar'>
     </form>
+
     <script src="./JS/ejemplo5.js"></script>
 </body>
 </html>
