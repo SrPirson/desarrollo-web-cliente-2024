@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 01</title>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Ejercicio 1</h1>
+    <div>
+        <form id="formulario"action="#">
+            <fieldset>
+                <legend>Introduzca los datos</legend><br>
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" type="text" name="nombre" minlength="3" required />
+                <div id="validacionNombre" class="error"></div>
+                <br /><br />
+
+                <label for="pApellido">Primer apellido:</label>
+                <input id="pApellido" type="text" name="pApellido" minlength="3" required />
+                <div id="validacionPApellido" class="error"></div>
+                <br /><br />
+
+                <label for="sApellido">Segundo apellido:</label>
+                <input id="sApellido" type="text" name="sApellido" minlength="3" />
+                <div id="validacionSApellido" class="error"></div>
+                <br /><br />
+
+                <label for="foto">Foto:</label>
+                <input id="foto" type="file" name="foto" />
+                <div id="validacionFoto" class="error"></div>
+                <br /><br />
+
+                <label for="edad">Edad:</label>
+                <input id="edad" type="number" name="edad" required />
+                <div id="validacionEdad" class="error"></div>
+                <br /><br />
+
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" size="40" required />
+                <div id="validacionEmail" class="error"></div>
+                <br /><br />
+
+                <label for="contra">Contraseña:</label>
+                <input id="contra" type="password" name="contra" />
+                <div id="validacionContra" class="error"></div>
+                <br /><br />
+
+                <label for="confContra">Confirmar contraseña:</label>
+                <input id="confContra" type="password" name="confContra" />
+                <input type="button" id="mostrarPass" value="Mostrar">
+                <div id="validacionContraConf" class="error"></div>
+                <br /><br />
+
+            </fieldset><br>
+            <input id="enviar" type="button" value="Enviar"></button>
+            <input id="limpiar" type="button" value="Limpiar"></button>
+        </form>
+        <div id="enviarError" class="error"></div>
+    </div>
+
+    <script defer src="./JS/ejercicio1.js"></script>
+</body>
+
+</html>

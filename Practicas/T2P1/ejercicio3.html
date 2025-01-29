@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <div>
+                <label for="marcas">Marcas:</label>
+                <select name="marcas" id="marcas">
+                    <option value="vacio" hidden>-- Selecciona una marca --</option>
+                    <option value="intel">Intel</option>
+                    <option value="amd">AMD</option>
+                    <option value="nvidia">Nvidia</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="modelos">Modelos:</label>
+                <select name="modelos" id="modelos">
+                    <option value="vacio" hidden>-- Selecciona un modelo --</option>
+                    <option value="hd3000" hidden>HD 3000</option>
+                    <option value="hd4000" hidden>HD 4000</option>
+                    <option value="iris600" hidden>IRIS 600</option>
+
+                    <option value="rxSeries500" hidden>RX Series 500</option>
+                    <option value="vegaSeries" hidden>Vega Series</option>
+                    <option value="rxSeries6000" hidden>RX Series 6000</option>
+
+                    <option value="gtxSerie1000" hidden>GTX Serie 1000</option>
+                    <option value="gtxSerie2000" hidden>GTX Serie 2000</option>
+                    <option value="gtxSerie3000" hidden>GTX Serie 3000</option>
+                </select>
+            </div><br>
+
+            <input type="button" value="Comprobar" id="comprobar">
+
+        </fieldset>
+        </form>
+        <script defer src="./JS/ejercicio3.js"></script>
+</body>
+</html>
