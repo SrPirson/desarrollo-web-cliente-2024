@@ -150,7 +150,7 @@ function validarFormulario() {
             "Nombre: " + nombre.value + "/n" +
             "Primer apellido: " + apellido1.value + "/n" +
             "Segundo apellido: " + apellido2.value + "/n" +
-            "Email: " + edad.value + "/n" +
+            "Email: " + email.value + "/n" +
             "Contraseña (no se muestra)"
         );
     }
