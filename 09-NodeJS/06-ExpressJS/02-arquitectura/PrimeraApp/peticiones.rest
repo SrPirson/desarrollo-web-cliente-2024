@@ -1,0 +1,25 @@
+GET http://localhost:3000/products
+
+###
+
+GET http://localhost:3000/products/5555
+
+###
+
+GET http://localhost:3000/products/new
+
+###
+
+POST http://localhost:3000/products/create
+
+###
+
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/users/edit
+
+###
+
+POST http://localhost:3000/users/update
