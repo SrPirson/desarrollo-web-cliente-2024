@@ -1,4 +1,5 @@
 // npm init - Para inicializar el proyecto desde la consola.
+// npm init -y
 
 // https://www.npmjs.com/ - Encontramos todas las librerias de NodeJS
 // npm install nombre_libreria - Para instalar las librerias que necesitemos, en cada proyecto hay que instalarlo desde consola.

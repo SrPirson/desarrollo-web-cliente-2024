@@ -1,0 +1,43 @@
+//- Comentario en PUG -> // <Comentario en HTML
+
+//- extendemos de layout.pug
+extends layout.pug
+
+//- Indicamos que todo el bloque content va a ser el código
+block content
+  h1 Título de la página
+  h2 Subtítulo
+
+  div
+    p Contenido del párrafo
+
+  div
+    a(href="https://google.com", class="", id="") Google.com
+    br
+    a#enlaceYoutube.enlace.principal(href="https://youtube.com/") YouTube
+
+  div 
+    p= name
+    p Me llamo #{name}
+
+  div
+    if available 
+      p Está disponible 
+    else 
+      p No está disponible
+
+  div 
+    ul
+      - for(let i = 0; i < animals.length; i++)
+        li=animals[i]
+
+  div 
+    //- - animals = [];
+    ul 
+      each animal in animals
+        li animal: #{animal}
+      else
+        li No hay animales
+
+block footer
+  p Esto es el footer

@@ -1,0 +1,49 @@
+//- Aquí creamos el codigo JS para el cliente
+
+extends layout
+
+block content
+  h1= title
+  h2#numClientes
+
+  //- Mostramos los mensajes de los usuarios
+  ul#mensajes
+
+  //- Donde escriben los usuarios 
+  div 
+    label Nombre 
+    input#inputUsuario(type="text")
+  div 
+    label Mensaje 
+    input#inputMensaje(type="text")
+  button#btnEnviar Enviar
+
+  script(src="/socket.io/socket.io.js")
+  script. 
+    const socket = io();
+
+    const inputUsuario = document.getElementById("inputUsuario");
+    const inputMensaje = document.getElementById("inputMensaje");
+    const btnEnviar = document.getElementById("btnEnviar");
+    const mensajes = document.getElementById("mensajes");
+    const numClientes = document.getElementById("numClientes");
+
+    //- Evento para recoger los datos enviados por el usuario al servidor
+    btnEnviar.addEventListener("click", () => {
+      socket.emit("mensaje_chat", { // Emite los datos del usuario al servidor
+        usuario: inputUsuario.value,
+        mensaje: inputMensaje.value
+      });
+    });
+
+    //- Replicamos los datos recibidos del servidor en todos los usuarios conectado.
+    socket.on("mensaje_chat", data => {
+      const li = document.createElement("li");
+      li.innerText= `${data.usuario}: ${data.mensaje}`;
+      mensajes.append(li);
+    });
+
+    //- Nos suscribimos al nuevo evento de num_clientes
+    socket.on("num_clientes", num => {
+      numClientes.innerText = `Clientes conectados: ${num}`;
+    });
