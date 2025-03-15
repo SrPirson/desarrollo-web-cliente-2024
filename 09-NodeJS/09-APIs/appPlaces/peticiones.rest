@@ -1,0 +1,24 @@
+GET http://localhost:3000/api/places
+
+###
+
+POST http://localhost:3000/api/places
+Content-Type: application/json
+
+{
+    "title": "Apartamento de prueba",
+    "description": "Esto es para probar las inserciones",
+    "address": "Calle Prueba 123",
+    "size": 90,
+    "postal_code": "29004",
+    "price_per_month": 800
+}
+###
+
+PUT  http://localhost:3000/api/places
+
+###
+
+DELETE  http://localhost:3000/api/places
+
+###

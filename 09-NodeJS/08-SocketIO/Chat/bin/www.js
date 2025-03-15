@@ -54,6 +54,9 @@ io.on("connection", (socket) => {
 
 });
 
+// Con render.com podemos desplegar nuestro proyecto
+// https://pruebas-cliente.onrender.com
+
 
 
 /**
