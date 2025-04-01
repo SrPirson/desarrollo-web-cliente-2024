@@ -18,12 +18,28 @@ const insert = ({title, description, size, address, postal_code, price_per_month
 };
 
 
-//
+// Para obtener la id del objeto que necesitemos
 const getById = (placeId) => {
     return db.query("SELECT * FROM places WHERE id = ?",
     [placeId]);
 }
 
+
+// Query de actualización || recibe la id y todos los parametros de la tabla
+const updateById = (placeId, {title, description, size, address, postal_code, price_per_month}) => {
+    return db.query(
+        'UPDATE places SET title = ?, description = ?, size = ?, address = ?, postal_code = ?, price_per_month = ?, update_at = ? WHERE id = ?',
+        [title, description, size, address, postal_code, price_per_month, new Date(), placeId]
+    );
+}
+
+
+// Creamos la funcion de borrar por id
+const deleteById = (placeId) => {
+    return db.query("DELETE FROM places WHERE id = ?", [placeId]);
+}
+
+
 module.exports = {
-    getAll, insert, getById
+    getAll, insert, getById, updateById, deleteById
 };

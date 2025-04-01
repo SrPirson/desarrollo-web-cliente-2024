@@ -27,12 +27,33 @@ const createPlace = async (req, res) => {
    
 };
 
-const updatePlace = (req, res) => {
-    res.json("Actualizamos un place");
+const updatePlace = async (req, res) => {
+    try {
+        const { placeId } = req.params; // Obtenemos el id de places
+
+        await Place.updateById(placeId, req.body); // indicamos que queremos modificar con su respectiva id
+
+        const [places] = await Place.getById(placeId); //Creamos una petición usando el select de la modificación
+
+
+        res.json(places[0]); // Al usar una petición SELECT siempre devuelve un array, aunque sea de 1
+    } catch (error) {
+        res.status(503).json({faltal: error.message});
+    }
+    
 };
 
-const deletePlace = (req, res) => {
-    res.json("Borramos un place");
+const deletePlace = async (req, res) => {
+    const { placeId } = req.params;
+
+    try {
+        await Place.deleteById(placeId);
+
+        res.json({success: "Se ha borrado el place."});
+    } catch (error) {
+        res.status(503).json({faltal: error.message});
+    }
+    
 };
 
 // Exportamos todos los metodos para poder usarlos

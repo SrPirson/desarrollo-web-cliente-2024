@@ -15,10 +15,20 @@ Content-Type: application/json
 }
 ###
 
-PUT  http://localhost:3000/api/places
+PUT  http://localhost:3000/api/places/21
+Content-Type: application/json
+
+{
+    "title": "Apartamento de prueba",
+    "description": "Esto es para probar las inserciones",
+    "address": "Calle Prueba 123",
+    "size": 120,
+    "postal_code": "29001",
+    "price_per_month": 1800
+}
 
 ###
 
-DELETE  http://localhost:3000/api/places
+DELETE  http://localhost:3000/api/places/21
 
 ###

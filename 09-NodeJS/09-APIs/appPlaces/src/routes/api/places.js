@@ -7,11 +7,8 @@ const router = require("express").Router(); // Extraemos el router de express pa
 const PlacesController = require("../../controllers/places.controller")
 
 router.get("/", PlacesController.getAllPlaces);
-
 router.post("/", PlacesController.createPlace);
-
-router.put("/", PlacesController.updatePlace);
-
-router.delete("/", PlacesController.deletePlace);
+router.put("/:placeId", PlacesController.updatePlace); // Creamos un identificador para cuando recibe el id
+router.delete("/:placeId", PlacesController.deletePlace);
 
 module.exports = router; // Exportamos el routerº
