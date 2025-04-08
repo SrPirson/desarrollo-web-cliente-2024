@@ -5,6 +5,8 @@
 const Place = require("../models/place.model"); // Importamos el modelo de place para usarlo
 const getAllPlaces = async (req, res) => {
     //res.json("Recuperamos todos los places");
+    console.log(req.user);
+    
     try { // Lo metemos dentro de un try catch por si hay algun error no se caiga el servidor
         const [places] = await Place.getAll(); // Destructuring de los datos de la BBDD
         res.json(places);
